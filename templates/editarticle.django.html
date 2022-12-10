@@ -1,0 +1,16 @@
+{% extends 'layout.html' %} {% block body %}{% from "includes/formhelpers.html"
+import render_field %}
+<h3>Makale Düzenle</h3>
+<hr />
+
+<div style="width: 50%" class="d-grid justfiy-content-center">
+  <form method="post">
+    <dl>
+      {{ render_field(form.title,class="form-control") }} {{
+      render_field(form.content,class="form-control") }}
+    </dl>
+    <button type="submit" class="btn btn-primary">Makaleyi Kaydet</button>
+  </form>
+</div>
+
+{% endblock body %}

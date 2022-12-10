@@ -1,0 +1,32 @@
+{% extends "layout.html" %} {% block body %}
+<div class="jumbotron text-center">
+  <h3>Yazılım Bilimi Bloğuna Hoşgeldiniz</h3>
+  <p>Bu blogta geliştiriciler olrak yazılımlarınızı paylaşabilirsiniz</p>
+</div>
+
+{% if islem == 1 %}
+<p>1. İşlem</p>
+{% elif islem == 2 %}
+<p>2. İşlem</p>
+{% else %}
+<p>Geçersiz İşlem</p>
+{% endif %}
+<ul>
+  {% for number in numbers %}
+  <li>{{number}} deneme</li>
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for article in articles %}
+  <li class="mb-2">
+    <ul>
+      <li>Article ID : {{article.id}}</li>
+      <li>Article Tiltle : {{article.tiltle}}</li>
+      <li>Article Content : {{article.content}}</li>
+    </ul>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock body %}

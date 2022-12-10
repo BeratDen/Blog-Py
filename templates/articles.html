@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block body %}
+<h3>Makaleler</h3>
+<hr />
+
+{% if articles %}
+<form action="/search" method="POST">
+  <div class="input-group">
+    <div class="form-outline">
+      <input type="search" name="q" id="form1" class="form-control" />
+      <label class="form-label" for="form1">Search</label>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-search">Ara</i>
+    </button>
+  </div>
+</form>
+<hr />
+<ul class="list-group mt-5">
+  {% for article in articles %}
+  <li class="list-group-item">
+    <h5><a href="articles/{{ article.id }}"> {{ article.title }}</a></h5>
+    <span>{{article.content}}</span>
+    <small> {{ article.author }} </small>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="alert alert-warning">Bu Blogta henüz makale bulunmuyor.</div>
+{% endif %} {% endblock body %}
